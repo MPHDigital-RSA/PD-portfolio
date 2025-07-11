@@ -47,9 +47,9 @@ function Navbar() {
 
                 <div className="px-4">
                     <ul className='space-y-1 p-4 bg-sky-500/8 rounded'>
-                        <li><a href="#" className={style.link}>Projects</a></li>
-                        <li><a href="#" className={style.link}>Resume</a></li>
-                        <li><a href="#" className={style.link}>Contact</a></li>
+                        <li><a href="#" className={style.link} onClick={() => setIsMobileNav(false)}>Projects</a></li>
+                        <li><a href="#" className={style.link} onClick={() => setIsMobileNav(false)}>Resume</a></li>
+                        <li><a href="#" className={style.link} onClick={() => setIsMobileNav(false)}>Contact</a></li>
                     </ul>
                 </div>
             }
