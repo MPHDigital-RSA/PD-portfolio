@@ -10,34 +10,50 @@ const style = {
 
 function Navbar() {
 
+    const [isDarkTheme, setIsDarkTheme] = useState(true)
+    const [isMobileNav, setIsMobileNav] = useState(false)
+
     const toogleDarkClass = () => {
         const body = document.getElementById("body");
         body.classList.toggle("dark")
     }
 
-    const [isDarkTheme, setIsDarkTheme] = useState(true)
+
     return (
-        <header className='container p-4 flex items-center justify-between mx-auto dark:bg-black dark:text-white'>
-            <p className="text-2xl font-semibold">
-                PD.
-            </p>
+        <>
+            <header className='container p-4 flex items-center justify-between mx-auto dark:bg-black dark:text-white'>
+                <p className="text-2xl font-semibold">
+                    PD.
+                </p>
 
-            <nav className='flex items-center space-x-5'>
-                <ul className='hidden items-center space-x-5 md:flex'>
-                    <li><a href="#" className={style.link}>Projects</a></li>
-                    <li><a href="#" className={style.link}>Resume</a></li>
-                    <li><a href="#" className={style.link}>Contact</a></li>
-                </ul>
+                <nav className='flex items-center space-x-5'>
+                    <ul className='hidden items-center space-x-5 md:flex'>
+                        <li><a href="#" className={style.link}>Projects</a></li>
+                        <li><a href="#" className={style.link}>Resume</a></li>
+                        <li><a href="#" className={style.link}>Contact</a></li>
+                    </ul>
 
-                <FaBars className="cursor-pointer md:hidden text-x" />
+                    <FaBars className="cursor-pointer md:hidden text-x" onClick={() => setIsMobileNav(!isMobileNav)} />
 
-                <div className="p-2 bg-sky-500/8 rounded-sm">
-                    {
-                        isDarkTheme ? <MdSunny className=' text-xl cursor-pointer text-[#F3CE55]' onClick={() => { setIsDarkTheme(false); toogleDarkClass() }} /> : <FaMoon className=' text-xl cursor-pointer text-[#cab229]' onClick={() => { setIsDarkTheme(true); toogleDarkClass() }} />
-                    }
+                    <div className="p-2 bg-sky-500/8 rounded-sm">
+                        {
+                            isDarkTheme ? <MdSunny className=' text-xl cursor-pointer text-[#F3CE55]' onClick={() => { setIsDarkTheme(false); toogleDarkClass() }} /> : <FaMoon className=' text-xl cursor-pointer text-[#cab229]' onClick={() => { setIsDarkTheme(true); toogleDarkClass() }} />
+                        }
+                    </div>
+                </nav>
+            </header>
+            {
+                isMobileNav &&
+
+                <div className="px-4">
+                    <ul className='space-y-1 p-4 bg-sky-500/8 rounded'>
+                        <li><a href="#" className={style.link}>Projects</a></li>
+                        <li><a href="#" className={style.link}>Resume</a></li>
+                        <li><a href="#" className={style.link}>Contact</a></li>
+                    </ul>
                 </div>
-            </nav>
-        </header>
+            }
+        </>
     )
 }
 
