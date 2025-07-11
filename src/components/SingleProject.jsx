@@ -30,7 +30,7 @@ function SingleProject({ project }) {
 
             {
                 isProjectModal &&
-                <div className="fixed h-screen w-screen bg-[#000000bc] top-0 left-0 dark:bg-[#ffffffd7] grid place-content-center pl-3 pr-3">
+                <div className="fixed h-screen w-screen bg-[#000000bc] top-0 left-0 dark:bg-[#ffffffd7] grid place-content-center px-10">
                     <ProjectModal project={project} setIsProjectModal={setIsProjectModal} />
                 </div>
             }
